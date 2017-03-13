@@ -8,12 +8,14 @@ Installation
 ------------
 
 .. code-block:: bash
-    ./setup.py install
+
+   ./setup.py install
 
 Usage
 -----
 
 .. code-block:: bash
+
     jinja2-render <template_file> <data_file>
 
 Example
@@ -22,6 +24,7 @@ Example
 Template file ``template.j2``:
 
 .. code-block:: json
+
     {
         "user": {
             "firstName": "{{ first_name }}",
@@ -33,6 +36,7 @@ Template file ``template.j2``:
 Variable file ``var.yml``:
 
 .. code-block:: yaml
+
     ---
     first_name: Raoul
     last_name: Duke
@@ -40,15 +44,16 @@ Variable file ``var.yml``:
 Rendering the template:
 
 .. code-block:: bash
+
     jinja2-render template.j2 var.yml
 
 Result:
 
 .. code-block:: json
+
     {
         "user": {
             "firstName": "Raoul",
             "lastName": "Duke"
-            "
         }
     }
