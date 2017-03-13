@@ -1,7 +1,7 @@
 jinja2-render
 =============
 
-Load variables from a YAML-formatted file and render a jinja2 template to
+Load variables from YAML-formatted files and render a jinja2 template to
 the standard output.
 
 Installation
@@ -16,7 +16,7 @@ Usage
 
 .. code-block:: bash
 
-    jinja2-render <template_file> <data_file>
+    jinja2-render <template_file> <data_file1> [<data_file2> ...]
 
 Example
 -------

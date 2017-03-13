@@ -17,7 +17,7 @@ setup(
 
     version='0.0.1',
 
-    description='Load variables from a YAML-formatted file to render jinja2 templates',
+    description='Load variables from YAML-formatted files to render a jinja2 template',
     long_description=LONG_DESCRIPTION,
     url='https://github.com/vnyb/jinja2-render',
 
