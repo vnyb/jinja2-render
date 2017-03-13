@@ -6,16 +6,21 @@ import argparse
 import jinja2
 import yaml
 
-def render(template_file, data_file):
+def render(template_file, data_file, extra_filters=None):
     """
     Load data from 'data_file' to render 'template_file'
     """
 
-    # Load template
+    # Prepare environment
     env = jinja2.Environment(
         autoescape=False,
         trim_blocks=False,
     )
+    if extra_filters:
+        module = __import__(extra_filters)
+        env.filters.update(module.FILTERS)
+
+    # Load template
     template = env.from_string(template_file.read())
 
     # Load data
@@ -35,6 +40,11 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(
+        '-f', '--filters',
+        type=str,
+        help='import extra filters from module'
+    )
+    parser.add_argument(
         'template_file',
         type=argparse.FileType('r'),
         help='jinja2-formatted template file',
@@ -47,7 +57,7 @@ def main():
     )
 
     args = parser.parse_args()
-    print(render(args.template_file, args.data_file))
+    print(render(args.template_file, args.data_file, args.filters))
 
 
 if __name__ == '__main__':
