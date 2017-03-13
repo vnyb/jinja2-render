@@ -57,3 +57,27 @@ Result:
             "lastName": "Duke"
         }
     }
+
+Loading extra Jinja2 filters
+----------------------------
+
+Extra filters ``/path/to/extra/filters.py``:
+
+.. code-block:: python
+
+    def foo(...):
+        return ...
+
+    def bar(...):
+        return ...
+
+    FILTERS = {
+        'foo': foo,
+        'bar': bar,
+    }
+
+Rendering with extra filters:
+
+.. code-block:: bash
+
+    jinja2-render -p /path/to/extra -f filters template.j2 var.yml
