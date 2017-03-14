@@ -29,7 +29,6 @@ Template file ``template.j2``:
         "user": {
             "firstName": "{{ first_name }}",
             "lastName": "{{ last_name }}"
-            "
         }
     }
 
