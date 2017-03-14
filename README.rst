@@ -1,8 +1,8 @@
 jinja2-render
 =============
 
-Load variables from YAML-formatted files and render a jinja2 template to
-the standard output.
+Load variables from YAML-formatted files and perform Jinja2 template
+rendering to the standard output.
 
 Installation
 ------------
@@ -16,7 +16,7 @@ Usage
 
 .. code-block:: bash
 
-    jinja2-render <template_file> <data_file1> [<data_file2> ...]
+    jinja2-render <template_name> <data_file1> [<data_file2> ...]
 
 Example
 -------
@@ -56,6 +56,19 @@ Result:
             "lastName": "Duke"
         }
     }
+
+Setting template path
+---------------------
+
+The path to Jinja2 template files can be set using the
+``-t``/``--template-path`` option:
+
+
+.. code-block:: bash
+
+    jinja2-render -t /path/to/templates/ template.j2 var.yml
+
+If omitted, it assumed to be the current working directory.
 
 Loading extra Jinja2 filters
 ----------------------------
